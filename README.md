@@ -20,7 +20,21 @@ gem install audd
 
 ## Usage
 
-TODO: Write usage instructions here
+
+### Making a request to recognize the songs from a long track
+```ruby
+api_token = "your_token"
+audd = Audd.new(api_token)
+
+# read https://docs.audd.io/enterprise/ to learn about request options.
+request = audd.recognize_enterprise(file: file) # one of file: file or url: url
+    .accurate_offsets
+    .skip(3)
+    .every(1)
+    .limit(100)
+
+result = request.execute!
+```
 
 ## Development
 
