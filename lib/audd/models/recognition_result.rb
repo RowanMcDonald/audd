@@ -6,7 +6,6 @@ require_relative "model"
 require_relative "apple_music_metadata"
 require_relative "deezer_metadata"
 require_relative "music_brainz_entry"
-require_relative "napster_metadata"
 require_relative "spotify_metadata"
 
 module Audd
@@ -35,7 +34,6 @@ module Audd
     field(:apple_music) { |v| AppleMusicMetadata.from_json(v) }
     field(:spotify) { |v| SpotifyMetadata.from_json(v) }
     field(:deezer) { |v| DeezerMetadata.from_json(v) }
-    field(:napster) { |v| NapsterMetadata.from_json(v) }
     field(:musicbrainz) { |v| Array(v).filter_map { |e| MusicBrainzEntry.from_json(e) } }
 
     # Matched against your own fingerprint catalog rather than the public DB.

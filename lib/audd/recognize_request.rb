@@ -14,8 +14,7 @@ module Audd
   #       .market("us")
   #       .execute!
   class RecognizeRequest
-    # The metadata providers AudD's `return` parameter accepts.
-    RETURN_METADATA_SOURCES = %w[apple_music spotify deezer napster musicbrainz].freeze
+    RETURN_METADATA_SOURCES = %w[apple_music spotify deezer musicbrainz].freeze
 
     # The server holds the connection open while it fingerprints the audio,
     # so this is generous by HTTP standards.
@@ -43,6 +42,7 @@ module Audd
     def return_metadata(*sources)
       sources = sources.flatten.map(&:to_s)
       unknown = sources - RETURN_METADATA_SOURCES
+
       unless unknown.empty?
         raise InvalidParameterError,
           "unknown return_metadata source(s): #{unknown.join(", ")}. " \

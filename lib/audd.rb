@@ -7,7 +7,6 @@ require_relative "audd/models/model"
 require_relative "audd/models/apple_music_metadata"
 require_relative "audd/models/deezer_metadata"
 require_relative "audd/models/music_brainz_entry"
-require_relative "audd/models/napster_metadata"
 require_relative "audd/models/spotify_metadata"
 require_relative "audd/models/recognition_result"
 require_relative "audd/models/recognize_success_response"
@@ -49,11 +48,12 @@ module Audd
       raise NotImplementedError
     end
 
-    private
-
     def inspect
       "#<#{self.class.name} api_token=[FILTERED]>"
     end
+
+    private
+
     attr_reader :api_token
   end
 
