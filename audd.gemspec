@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name = "audd"
   spec.version = Audd::VERSION
   spec.authors = ["Rowan McDonald"]
-  spec.email = ["22102097+RowanMcDonald@users.noreply.github.com"]
+  spec.email = ["rowjaim@gmail.com"]
 
   spec.summary = "SDK for AudD music recognition software."
   spec.description = "SDK for AudD music recognition software."

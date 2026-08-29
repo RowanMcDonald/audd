@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.2.0] - 2026-08-29
+
 ### Added
 
 - `Audd::Client#recognize` — the `POST api.audd.io/` recognition endpoint, via a
@@ -8,7 +10,7 @@
   url as `url:`.
 - Response objects named after the AudD OpenAPI schemas and namespaced under
   `Audd`: `RecognitionResult`, `RecognizeSuccessResponse`, `ErrorResponse`,
-  `AppleMusicMetadata`, `SpotifyMetadata`, `DeezerMetadata`, `NapsterMetadata`
+  `AppleMusicMetadata`, `SpotifyMetadata`, `DeezerMetadata`
   and `MusicBrainzEntry`. Unmapped keys stay reachable via `#[]` and `#raw`.
 - An exception hierarchy under `Audd::Error`, mapping every AudD error code to a
   typed `Audd::ApiError` subclass and carrying the server's request echo.
