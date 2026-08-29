@@ -6,13 +6,12 @@ require "securerandom"
 require "uri"
 
 require_relative "errors"
-require_relative "user_agent"
 
 module Audd
-  # Minimal multipart/form-data POST over Net::HTTP. Hand-rolled so the gem
-  # ships with no runtime dependencies.
   class HttpClient
     Response = Struct.new(:status, :body, :request_id, keyword_init: true)
+
+    USER_AGENT = "audd-ruby/#{VERSION} ruby/#{RUBY_VERSION} (#{RUBY_PLATFORM})"
 
     # AudD only accepts multipart uploads; the field name for the upload is
     # fixed by the API.

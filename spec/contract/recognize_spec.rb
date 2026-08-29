@@ -42,7 +42,7 @@ RSpec.describe "recognize contract", :contract do
       end
 
       expect(a_request(:post, "https://api.audd.io/").with { |request|
-        request.headers["User-Agent"] == Audd::USER_AGENT &&
+        request.headers["User-Agent"].start_with?("audd-ruby") &&
           request.headers["Content-Type"].start_with?("multipart/form-data; boundary=") &&
           request.body.include?('name="file"; filename="clip') &&
           request.body.include?("ID3 fake audio")

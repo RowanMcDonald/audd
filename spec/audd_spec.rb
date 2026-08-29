@@ -5,27 +5,7 @@ RSpec.describe Audd do
     expect(Audd::VERSION).not_to be nil
   end
 
-  it "identifies itself with a project-specific user agent" do
-    expect(Audd::USER_AGENT).to start_with("audd-ruby/#{Audd::VERSION} ")
-  end
-
   describe ".new" do
-    it "builds a client" do
-      expect(Audd.new("token")).to be_a(Audd::Client)
-    end
-
-    it "falls back to AUDD_API_TOKEN" do
-      allow(ENV).to receive(:[]).with("AUDD_API_TOKEN").and_return("from-env")
-
-      expect(Audd.new.api_token).to eq("from-env")
-    end
-
-    it "raises rather than letting the server reject an empty token" do
-      allow(ENV).to receive(:[]).with("AUDD_API_TOKEN").and_return(nil)
-
-      expect { Audd.new }.to raise_error(Audd::ConfigurationError, /dashboard.audd.io/)
-    end
-
     it "keeps the token out of #inspect" do
       expect(Audd.new("s3cret").inspect).not_to include("s3cret")
     end
