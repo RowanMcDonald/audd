@@ -36,14 +36,26 @@ request = audd.recognize_enterprise(file: file) # one of file: file or url: url
 result = request.execute!
 ```
 
+### Timeouts
+Because the enterprise endpoint holds a long request open, the timeout for that endpoint is 6 minutes
+ - make sure not to make this request inside of an http transaction.
+
+### Errors
+
+
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
+### Testing
+We use webvalve for our server mocks used in testing.
+
 TODO:
-1. Add webvalve testing
+1. Add openapi for testing https://github.com/AudDMusic/audd-openapi
+3. Rename to audd-ruby
 
 ## Contributing
 

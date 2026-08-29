@@ -8,8 +8,8 @@ RSpec.describe Audd do
   xit "raises error when the api errors" do
     # TODO: setup error mock
     #
-    expect { 
-      Audd.new("test").recognize_enterprise(file: file).execute! 
+    expect {
+      Audd.new("test").recognize_enterprise(file: file).execute!
     }.to raise_error Audd::Error
   end
 end
