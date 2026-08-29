@@ -1,0 +1,3 @@
+[submodule "spec/audd-openapi"]
+	path = spec/audd-openapi
+	url = https://github.com/AudDMusic/audd-openapi.git
